@@ -1,6 +1,6 @@
 # Optimizing an ML Pipeline in Azure
 
-![](https://github.com/dpbac/Optimizing-an-ML-Pipeline-in-Azure/tree/master/images)
+![](https://github.com/dpbac/Optimizing-an-ML-Pipeline-in-Azure/blob/master/images/project_summary.JPG)
 source: Nanodegree Program Machine Learning Engineer with Microsoft Azure
 
 ## Overview
