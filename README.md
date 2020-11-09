@@ -1,5 +1,8 @@
 # Optimizing an ML Pipeline in Azure
 
+![](https://github.com/dpbac/Optimizing-an-ML-Pipeline-in-Azure/tree/master/images)
+source: Nanodegree Program Machine Learning Engineer with Microsoft Azure
+
 ## Overview
 This project is part of the Udacity Azure ML Nanodegree.
 In this project, we build and optimize an Azure ML pipeline using the Python SDK and a provided Scikit-learn model.
