@@ -33,7 +33,18 @@ This is a classification problem wich goal is to predict if the client will subs
 **original source of the data**: 
 [Moro et al., 2014] S. Moro, P. Cortez and P. Rita. A Data-Driven Approach to Predict the Success of Bank Telemarketing. Decision Support Systems, Elsevier, 62:22-31, June 2014 (https://repositorio.iscte-iul.pt/bitstream/10071/9499/5/dss_v3.pdf )
 
-**In 1-2 sentences, explain the solution: e.g. "The best performing model was a ..."**
+### Solution and Result
+
+For this classification problem to approaches were used:
+
+1. Apply a Scikit-learn Logistic Regression model, optimizing its hyperparameters using HyperDrive.
+2. Use Azure Auto ML to build and optimize a model on the same dataset
+
+As a result, the best model, considering `accuracy` as primary metric was the one obtained using AutoML. It was a Voting Ensemble model. 
+However, the accuracy obtained both applying Logistic Regression with HyperDrive and AutoML were close, respectively, 0.9109 and 0.9174.
+The main advantage of the AutoML is explainability, so we choose further which features have more weight on the predictions. In addition, 
+we can observe the value of other metrics that in the case of an imbalanced dataset as this one can say more than `accuracy`.
+
 
 ## Scikit-learn Pipeline
 **Explain the pipeline architecture, including data, hyperparameter tuning, and classification algorithm.**
