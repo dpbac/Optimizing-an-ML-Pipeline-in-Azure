@@ -120,14 +120,28 @@ every multiple of evaluation_interval that is greater than or equal to delay_eva
 
 As we see in the image above, different from the experiment using HyperDrive, the one using AutoML run all within the notebook.
 
-Using the training part of the dataset, Azure AutoML tested different 48 models, tunning different hyperparameters for each of them, until the best of them (higher accuracy) 
-was found. Here are 
+Using the training part of the dataset, Azure AutoML tested different 48 models, tunning different hyperparameters for each of them, until the best of them 
+(higher accuracy) was found. Here are 
 the top 4 best models considering accuracy.
 
 ![](https://github.com/dpbac/Optimizing-an-ML-Pipeline-in-Azure/blob/master/images/auto_ml_4_best_models.JPG)
 
 
-As for HyperDriver we defined some parameter for `AutoMLConfig`, include parameters that set some limits so we can run de experiments during a reasonable amount of time.
+As for HyperDriver we defined some parameter for `AutoMLConfig`, including parameters that set some limits so we can run de experiments during a reasonable amount of time.
+
+The parameters we set were:
+
+• `task`: type of task to run (‘classification’)
+• `primary_metric`: The metric that Automated Machine Learning will optimize for model selection. ("accuracy")
+• `training_data`: The validation data to be used within the experiment. (dataframe with training features and label column)
+• label_column_name: The name of the label column. ('y')
+• experiment_timeout_minutes: Maximum amount of time in minutes that all iterations combined can take before the experiment terminates.(30)
+
+The best model produced by these parameters were a `VotingEnsemble` which achieved 0.9174 accuracy.
+
+![](https://github.com/dpbac/Optimizing-an-ML-Pipeline-in-Azure/blob/master/images/VotingEmsembleClassifier.JPG)
+![](https://github.com/dpbac/Optimizing-an-ML-Pipeline-in-Azure/blob/master/images/steps_votting_classifier.JPG)
+The images below show details of this model.
 
 
 ## Pipeline comparison
