@@ -132,9 +132,13 @@ As for HyperDriver we defined some parameter for `AutoMLConfig`, including param
 The parameters we set were:
 
 • `task`: type of task to run (‘classification’)
+
 • `primary_metric`: The metric that Automated Machine Learning will optimize for model selection. ("accuracy")
+
 • `training_data`: The validation data to be used within the experiment. (dataframe with training features and label column)
+
 • label_column_name: The name of the label column. ('y')
+
 • experiment_timeout_minutes: Maximum amount of time in minutes that all iterations combined can take before the experiment terminates.(30)
 
 The best model produced by these parameters were a `VotingEnsemble` which achieved 0.9174 accuracy.
