@@ -137,9 +137,9 @@ The parameters we set were:
 
 • `training_data`: The validation data to be used within the experiment. (dataframe with training features and label column)
 
-• label_column_name: The name of the label column. ('y')
+• `label_column_name`: The name of the label column. ('y')
 
-• experiment_timeout_minutes: Maximum amount of time in minutes that all iterations combined can take before the experiment terminates.(30)
+•  `experiment_timeout_minutes`: Maximum amount of time in minutes that all iterations combined can take before the experiment terminates.(30)
 
 The best model produced by these parameters were a `VotingEnsemble` which achieved 0.9174 accuracy.
 
@@ -166,11 +166,14 @@ it unifies the best of different models.
 
 Details about both experiments are shown below.
 
-![](https://github.com/dpbac/Optimizing-an-ML-Pipeline-in-Azure/blob/master/images/hd_experiment_details_pg01.JPG)
 **Details of the best model obtained using Logistic Regression and HyperDrive.**
 
-![](https://github.com/dpbac/Optimizing-an-ML-Pipeline-in-Azure/blob/master/images/automl_experiment_details_pg01.JPG)
+![](https://github.com/dpbac/Optimizing-an-ML-Pipeline-in-Azure/blob/master/images/hd_experiment_details_pg01.JPG)
+
 **Details of the best model obtained using AutoML.**
+
+![](https://github.com/dpbac/Optimizing-an-ML-Pipeline-in-Azure/blob/master/images/automl_experiment_details_pg01.JPG)
+
 
 
 ## Future work
