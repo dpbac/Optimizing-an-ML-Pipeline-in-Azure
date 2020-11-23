@@ -8,7 +8,7 @@
 
 This project is part of the Udacity Azure ML Nanodegree.
 
-In this project, first we build and optimize an Azure ML pipeline using the Python SDK and a provided Scikit-learn Logistic Regression model. 
+In this project, first we build and optimize an Azure ML pipeline using the Python SDK and a provided [Scikit-learn Logistic Regression model](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html). 
 The hyperparameters of this model are optimized using HyperDrive. After that, a second model is built and optimized using Azure Auto ML on the on the same dataset.
 
 Then, the results obtained by both models are compared.
@@ -31,7 +31,8 @@ It consists of 32950 entries, 20 features containing information about `client`,
 This is a classification problem wich goal is to predict if the client will subscribe (yes/no) to a bank term deposit (variable `y`).
 
 **original source of the data**: 
-[Moro et al., 2014] S. Moro, P. Cortez and P. Rita. A Data-Driven Approach to Predict the Success of Bank Telemarketing. Decision Support Systems, Elsevier, 62:22-31, June 2014 (https://repositorio.iscte-iul.pt/bitstream/10071/9499/5/dss_v3.pdf )
+[Moro et al., 2014] S. Moro, P. Cortez and P. Rita. A Data-Driven Approach to Predict the Success of Bank Telemarketing. Decision Support Systems, Elsevier, 62:22-31, 
+June 2014 (https://repositorio.iscte-iul.pt/bitstream/10071/9499/5/dss_v3.pdf )
 
 ### Solution and Result
 
@@ -43,10 +44,13 @@ For this classification problem to approaches were used:
 As a result, the best model, considering `accuracy` as primary metric was the one obtained using AutoML. It was a Voting Ensemble model. 
 However, the accuracy obtained both applying Logistic Regression with HyperDrive and AutoML were close, respectively, 0.9109 and 0.9174.
 The main advantage of the AutoML is explainability, so we choose further which features have more weight on the predictions. In addition, 
-we can observe the value of other metrics that in the case of an imbalanced dataset as this one can say more than `accuracy`.
+we can observe the value of other metrics that in the case of an imbalanced dataset as this one can say more than accuracy.
 
 
 ## Scikit-learn Pipeline
+
+![]()
+
 **Explain the pipeline architecture, including data, hyperparameter tuning, and classification algorithm.**
 
 **What are the benefits of the parameter sampler you chose?**
