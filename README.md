@@ -49,13 +49,52 @@ we can observe the value of other metrics that in the case of an imbalanced data
 
 ## Scikit-learn Pipeline
 
+### Summary of the Pipeline
+
 ![](https://github.com/dpbac/Optimizing-an-ML-Pipeline-in-Azure/blob/master/images/HyperDrive_pipeline.JPG)
 
-**Explain the pipeline architecture, including data, hyperparameter tuning, and classification algorithm.**
+<img align="centeer" width="300" height="300" src="https://github.com/dpbac/Optimizing-an-ML-Pipeline-in-Azure/blob/master/images/HyperDrive_pipeline.JPG">
 
-**What are the benefits of the parameter sampler you chose?**
 
-**What are the benefits of the early stopping policy you chose?**
+An overview of the Scikit-learn/HyperDrive experiment is illustrate in the image above.
+
+The script `train.py` included:
+
+1. Loading dataset from https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv 
+2.	Cleaning and transforming data (e.g. drop NaN values, one hot encode, and encode from string to number using dictionary). 
+3.	Calling the SKlearn Logistic Regression model using parameters (`C` (float): Inverse of regularization strength. float. Smaller values, stronger regularization) and `max_iter`(int): Maximum number of iterations taken for the solvers to converge)
+Roughly, the following steps were taken in the notebook:
+1.	Initialize our `Workspace`
+2.	Create an `Experiment`
+3.	Define resources, i.e., create `AmlCompute` as training compute resource
+
+Specify a compute configuration means defining the `type of machine` to be used and the `scalability behaviors`. Also, it is necessary to define the name of the cluster which must be unique within the workspace. This name is used to address the cluster later.
+For this project we use a CPU cluster with following parameters:
+* `type of the machine`:
+    * `vm_size`: Defines the size of the virtual machine. We use here "STANDARD_D2_V2" (more details [here](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-sizes-specs#dv2-series))
+* `Scalability behaviors`:
+    * `min_nodes`: Sets minimum size of the cluster. Setting the minimum to 0 the cluster will shut down all nodes while not in use. If you use another value you are able to have faster start-up times, but you will also be billed when the cluster is not in use.
+    * `max_nodes`: Sets the maximum size of the cluster. Larger number allows for more concurrency and a greater distributed processing of scale-out jobs.
+4. `Hyper parameter tunning` which means defining parameters to be used by HyperDrive. Part of it involves specifying a parameter sampler, a policy for early termination, and creating an estimator for the `train.py` script.
+5. Submit the `HyperDriveConfig` to run the experiment using parameters defined in the previous step.
+6. Use method ` get_best_run_by_primary_metric()` on the run to select the best hyperparameters for the Sklearn Logistic Regression model
+7. Save the best model.
+### What are the benefits of the parameter sampler chosen?
+In the `random sampling algorithm used` in this project, parameter values are chosen from a set of discrete values or a distribution over a continuous range.
+Random sampling supports discrete and continuous hyperparameters. It supports early termination of low-performance runs. In random sampling, hyperparameter values are randomly selected from the defined search space.
+The other two available techniques (Grid Sampling and Bayesian) are indicated if you have a budget to exhaustively search over the search space. In addition, Bayesian does not allow using early termination.
+With Random sampling we can always do an initial search with random sampling and then refine the search space to improve results
+### What are the benefits of the early stopping policy you chosen?
+In general, an `early stopping policy` automatically terminate poorly performing runs which improves computational efficiency.
+The `early termination policy` we used [`Bandit Policy`]( https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?preserve-view=true&view=azure-ml-py#&preserve-view=truedefinition ). This policy is based on `slack factor/slack amount` and `evaluation interval`. Bandit terminates runs where the primary metric is not within the specified slack factor/slack amount compared to the best performing run.
+
+This allows more aggressive savings than Median Stopping policy if we apply a smaller allowable slack.
+
+Parameter `slack_factor` which is the slack allowed with respect to the best performing training run, need to be defined while `evaluation_interval` and `delay_interval` are optional.
+
+`evaluation_interval` says when the policy is applied. If the `evaluation_interval` is not defined the default value is one, i.e., policy is applied every time the training script reports the primary metric.
+
+Specifying `delay_interval` avoids premature termination of training runs by allowing all configurations to run for a minimum number of intervals. If specified, the policy applies every multiple of evaluation_interval that is greater than or equal to delay_evaluation.
 
 ## AutoML
 **In 1-2 sentences, describe the model and hyperparameters generated by AutoML.**
