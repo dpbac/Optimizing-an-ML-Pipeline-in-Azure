@@ -1,4 +1,5 @@
-<img align="left" width="100" height="100" src="https://github.com/dpbac/Optimizing-an-ML-Pipeline-in-Azure/blob/master/images/microsoft-azure-640x401.png">
+<img align="left" width="150" height="100" src="https://github.com/dpbac/Optimizing-an-ML-Pipeline-in-Azure/blob/master/images/microsoft-azure-640x401.png">
+
 # Optimizing an ML Pipeline in Azure
 
 
