@@ -19,7 +19,19 @@ A diagram illustrating the steps of this project is shown below:
 source: Nanodegree Program Machine Learning Engineer with Microsoft Azure
 
 ## Summary
-**In 1-2 sentences, explain the problem statement: e.g "This dataset contains data about... we seek to predict..."**
+
+### Dataset and Problem Statement
+
+The dataset used in this project contains data collected during direct marketing campaigns (phone calls) of a Portuguese banking institution. 
+This is a subset of the original public dataset available at [UCI Machine Learning repository]( https://archive.ics.uci.edu/ml/datasets/Bank+Marketing). 
+In this website a detailed description of each feature can be found.
+
+It consists of 32950 entries, 20 features containing information about `client`, information relative to the `marketing campaign`, and `social and economic` metrics. 
+
+This is a classification problem wich goal is to predict if the client will subscribe (yes/no) to a bank term deposit (variable `y`).
+
+**original source of the data**: 
+[Moro et al., 2014] S. Moro, P. Cortez and P. Rita. A Data-Driven Approach to Predict the Success of Bank Telemarketing. Decision Support Systems, Elsevier, 62:22-31, June 2014 (https://repositorio.iscte-iul.pt/bitstream/10071/9499/5/dss_v3.pdf )
 
 **In 1-2 sentences, explain the solution: e.g. "The best performing model was a ..."**
 
