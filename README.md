@@ -51,7 +51,7 @@ we can observe the value of other metrics that in the case of an imbalanced data
 
 ### Summary of the Pipeline
 
-<img align="center" width="800" height="600" src="https://github.com/dpbac/Optimizing-an-ML-Pipeline-in-Azure/blob/master/images/HyperDrive_pipeline.JPG">
+<img align="center" width="700" height="300" src="https://github.com/dpbac/Optimizing-an-ML-Pipeline-in-Azure/blob/master/images/HyperDrive_pipeline.JPG">
 
 
 An overview of the Scikit-learn/HyperDrive experiment is illustrate in the image above.
