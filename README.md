@@ -49,7 +49,7 @@ we can observe the value of other metrics that in the case of an imbalanced data
 
 ## Scikit-learn Pipeline
 
-![]()
+![](https://github.com/dpbac/Optimizing-an-ML-Pipeline-in-Azure/blob/master/images/HyperDrive_pipeline.JPG)
 
 **Explain the pipeline architecture, including data, hyperparameter tuning, and classification algorithm.**
 
