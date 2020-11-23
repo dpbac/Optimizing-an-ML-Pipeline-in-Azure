@@ -175,12 +175,20 @@ Details about both experiments are shown below.
 ![](https://github.com/dpbac/Optimizing-an-ML-Pipeline-in-Azure/blob/master/images/automl_experiment_details_pg01.JPG)
 
 
-
 ## Future work
 
-As noticed since the beining 
+One main area that can be improved is to consider the fact that the data is imbalanced. As noticed when inspecting the dataset and also pointed by AutoML, 11.20% the dataset 
+is labeled `yes` and 88.80% is labeled `no`. This can be noticed by the confusion matrix below.
 
-**What are some areas of improvement for future experiments? Why might these improvements help the model?**
+[](https://github.com/dpbac/Optimizing-an-ML-Pipeline-in-Azure/blob/master/images/auto_ml_confusion_matrix_norm.JPG)
+
+As seen, the model behaves much better when predicting label 0 (`no`). 
+
+Therefore, considering trying techniques to deal with imbalanced data before applying AutoML is something that I’d like to try in the future.
+
+In addition, I’d like to tune more AutoMLConfig parameters .
+
 
 ## Proof of cluster clean up
+
 Cluster was cleaned in the notebook.
